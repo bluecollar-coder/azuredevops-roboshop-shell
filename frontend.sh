@@ -7,6 +7,8 @@ dnf install nginx -y
 systemctl enable nginx
 systemctl start nginx
 
+cp nginx.conf /etc/nginx/nginx.conf
+
 rm -rf /usr/share/nginx/html/*
 rm -f /tmp/frontend.zip
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
@@ -14,6 +16,6 @@ curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 
-cp nginx.conf /etc/nginx/nginx.conf
+
 
 systemctl restart nginx
